@@ -46,7 +46,7 @@ import android.widget.TextView;
  * landscape.
  */
 public class Menu extends TabActivity {
-
+	
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,29 +56,24 @@ public class Menu extends TabActivity {
 	    TabHost tabHost = getTabHost();  // The activity TabHost
 	    TabHost.TabSpec spec;  // Resusable TabSpec for each tab
 	    Intent intent;  // Reusable Intent for each tab
-
 	    // Create an Intent to launch an Activity for the tab (to be reused)
 	    intent = new Intent().setClass(this, ArtistsActivity.class);
-
 	    // Initialize a TabSpec for each tab and add it to the TabHost
 	    spec = tabHost.newTabSpec("artists").setIndicator("Artists",
 	                      res.getDrawable(R.drawable.ic_tab_artists))
 	                  .setContent(intent);
 	    tabHost.addTab(spec);
-
 	    // Do the same for the other tabs
 	    intent = new Intent().setClass(this, AlbumsActivity.class);
 	    spec = tabHost.newTabSpec("albums").setIndicator("Albums",
 	                      res.getDrawable(R.drawable.ic_tab_artists))
 	                  .setContent(intent);
-	    tabHost.addTab(spec);
-	    
+	    tabHost.addTab(spec);    
 	    intent = new Intent().setClass(this, SongsActivity.class);
 	    spec = tabHost.newTabSpec("songs").setIndicator("Songs",
 	                      res.getDrawable(R.drawable.ic_tab_artists))
 	                  .setContent(intent);
-	    tabHost.addTab(spec);
-	    
+	    tabHost.addTab(spec);    
 	    tabHost.setCurrentTab(0);
     }
     /**
@@ -91,7 +86,7 @@ public class Menu extends TabActivity {
         boolean mDualPane;
         int mCurCheckPosition = 0;
         int mShownCheckPosition = -1;
-
+        
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
@@ -105,7 +100,7 @@ public class Menu extends TabActivity {
             //View detailsFrame = getActivity().findViewById(R.id.details);
             //mDualPane = detailsFrame != null && detailsFrame.getVisibility() == View.VISIBLE;
 
-            if (savedInstanceState != null) {
+            /*if (savedInstanceState != null) {
                 // Restore last state for checked position.
                 mCurCheckPosition = savedInstanceState.getInt("curChoice", 0);
                 mShownCheckPosition = savedInstanceState.getInt("shownChoice", -1);
@@ -116,7 +111,18 @@ public class Menu extends TabActivity {
                 getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
                 // Make sure our UI is in the correct state.
                 showDetails(mCurCheckPosition);
-            }
+            }*/
+            final String[] GENRES = new String[] {
+    	        "Action", "Adventure", "Animation", "Children", "Comedy", "Documentary", "Drama",
+    	        "Foreign", "History", "Independent", "Romance", "Sci-Fi", "Television", "Thriller"
+            };
+            setListAdapter(new ArrayAdapter<String>(getActivity(),
+                    android.R.layout.simple_list_item_single_choice, GENRES));
+            
+            final ListView listView = getListView();
+
+            listView.setItemsCanFocus(false);
+            listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         }
 
         @Override
@@ -167,8 +173,9 @@ public class Menu extends TabActivity {
                 //startActivity(intent);
             }
         }
+        
     }
-
+    
 
     /**
      * This is the secondary fragment, displaying the details of a particular

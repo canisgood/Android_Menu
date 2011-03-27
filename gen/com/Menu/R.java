@@ -17,8 +17,10 @@ public final class R {
         public static final int icon=0x7f020003;
     }
     public static final class id {
+        public static final int button1=0x7f050002;
+        public static final int frameLayout1=0x7f050001;
         public static final int textview=0x7f050000;
-        public static final int titles=0x7f050001;
+        public static final int titles=0x7f050003;
     }
     public static final class layout {
         public static final int albums=0x7f030000;
