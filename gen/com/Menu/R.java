@@ -11,26 +11,80 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int ic_tab_artists=0x7f020000;
-        public static final int ic_tab_artists_grey=0x7f020001;
-        public static final int ic_tab_artists_white=0x7f020002;
-        public static final int icon=0x7f020003;
+        public static final int ic_tab_drinks=0x7f020000;
+        public static final int ic_tab_drinks_grey=0x7f020001;
+        public static final int ic_tab_drinks_white=0x7f020002;
+        public static final int ic_tab_hamburger=0x7f020003;
+        public static final int ic_tab_hamburger_grey=0x7f020004;
+        public static final int ic_tab_hamburger_white=0x7f020005;
+        public static final int ic_tab_omelet=0x7f020006;
+        public static final int ic_tab_omelet_grey=0x7f020007;
+        public static final int ic_tab_omelet_white=0x7f020008;
+        public static final int icon=0x7f020009;
+        public static final int sample_grey=0x7f02000a;
+        public static final int sample_white=0x7f02000b;
     }
     public static final class id {
-        public static final int button1=0x7f050002;
-        public static final int frameLayout1=0x7f050001;
-        public static final int textview=0x7f050000;
-        public static final int titles=0x7f050003;
+        public static final int button1=0x7f050008;
+        public static final int button_d_cocs=0x7f050000;
+        public static final int button_d_hpbm=0x7f050002;
+        public static final int button_d_hsm=0x7f050004;
+        public static final int button_d_ipbm=0x7f050001;
+        public static final int button_d_ism=0x7f050003;
+        public static final int button_h_cceb=0x7f05000b;
+        public static final int button_h_ceb=0x7f05000e;
+        public static final int button_h_peb=0x7f05000d;
+        public static final int button_h_scef=0x7f05000a;
+        public static final int button_h_tbcb=0x7f05000c;
+        public static final int button_o_ccco=0x7f050010;
+        public static final int button_o_cco=0x7f050013;
+        public static final int button_o_pco=0x7f050012;
+        public static final int button_o_scco=0x7f05000f;
+        public static final int button_o_tbco=0x7f050011;
+        public static final int frameLayout1=0x7f050007;
+        public static final int textview=0x7f050005;
+        public static final int textview2=0x7f050006;
+        public static final int titles=0x7f050009;
     }
     public static final class layout {
-        public static final int albums=0x7f030000;
-        public static final int artists=0x7f030001;
-        public static final int fragment_layout=0x7f030002;
+        public static final int drinks=0x7f030000;
+        public static final int fragment_layout=0x7f030001;
+        public static final int hamburger=0x7f030002;
         public static final int main=0x7f030003;
-        public static final int songs=0x7f030004;
+        public static final int omelet=0x7f030004;
     }
     public static final class string {
         public static final int app_name=0x7f040001;
+        public static final int cost_d_cocs=0x7f04001b;
+        public static final int cost_d_hpbm=0x7f04001d;
+        public static final int cost_d_hsm=0x7f04001f;
+        public static final int cost_d_ipbm=0x7f04001c;
+        public static final int cost_d_ism=0x7f04001e;
+        public static final int cost_h_cceb=0x7f040012;
+        public static final int cost_h_ceb=0x7f040015;
+        public static final int cost_h_peb=0x7f040014;
+        public static final int cost_h_scef=0x7f040011;
+        public static final int cost_h_tbcb=0x7f040013;
+        public static final int cost_o_ccco=0x7f040017;
+        public static final int cost_o_cco=0x7f04001a;
+        public static final int cost_o_pco=0x7f040019;
+        public static final int cost_o_scco=0x7f040016;
+        public static final int cost_o_tbco=0x7f040018;
+        public static final int d_cocs=0x7f04000c;
+        public static final int d_hpbm=0x7f04000e;
+        public static final int d_hsm=0x7f040010;
+        public static final int d_ipbm=0x7f04000d;
+        public static final int d_ism=0x7f04000f;
+        public static final int h_cceb=0x7f040003;
+        public static final int h_ceb=0x7f040006;
+        public static final int h_peb=0x7f040005;
+        public static final int h_scef=0x7f040002;
+        public static final int h_tbcb=0x7f040004;
         public static final int hello=0x7f040000;
+        public static final int o_ccco=0x7f040008;
+        public static final int o_cco=0x7f04000b;
+        public static final int o_pco=0x7f04000a;
+        public static final int o_scco=0x7f040007;
+        public static final int o_tbco=0x7f040009;
     }
 }

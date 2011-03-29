@@ -53,27 +53,47 @@ public class Menu extends TabActivity {
         super.onCreate(savedInstanceState);     
         setContentView(R.layout.fragment_layout);
         Resources res = getResources(); // Resource object to get Drawables
-	    TabHost tabHost = getTabHost();  // The activity TabHost
-	    TabHost.TabSpec spec;  // Resusable TabSpec for each tab
-	    Intent intent;  // Reusable Intent for each tab
-	    // Create an Intent to launch an Activity for the tab (to be reused)
-	    intent = new Intent().setClass(this, ArtistsActivity.class);
+        
+	    // Some parameters for tab
+	    String tab1_name="º~³ù";
+	    String tab2_name="³J»æ";
+	    String tab3_name="¶¼®Æ";
+	    String tab1_spec="Hamburger";
+	    String tab2_spec="Omelet";
+	    String tab3_spec="Drinks";
+	    
+	    // The activity TabHost
+	    TabHost tabHost = getTabHost();
+	    
+	    // Resusable TabSpec for each tab
+	    TabHost.TabSpec spec;
+	    
+	    // Reusable Intent for each tab
+	    Intent intent;
+
+	    // Create hamburger tab, Create an Intent to launch an Activity for the tab (to be reused)
+	    intent = new Intent().setClass(this, HamburgerActivity.class);	 
+
 	    // Initialize a TabSpec for each tab and add it to the TabHost
-	    spec = tabHost.newTabSpec("artists").setIndicator("Artists",
-	                      res.getDrawable(R.drawable.ic_tab_artists))
+	    spec = tabHost.newTabSpec(tab1_spec).setIndicator(tab1_name,
+	                      res.getDrawable(R.drawable.ic_tab_hamburger))
 	                  .setContent(intent);
 	    tabHost.addTab(spec);
-	    // Do the same for the other tabs
-	    intent = new Intent().setClass(this, AlbumsActivity.class);
-	    spec = tabHost.newTabSpec("albums").setIndicator("Albums",
-	                      res.getDrawable(R.drawable.ic_tab_artists))
+
+	    // Create omelet tab
+	    intent = new Intent().setClass(this, OmeletActivity.class);
+	    spec = tabHost.newTabSpec(tab2_spec).setIndicator(tab2_name,
+	                      res.getDrawable(R.drawable.ic_tab_omelet))
 	                  .setContent(intent);
-	    tabHost.addTab(spec);    
-	    intent = new Intent().setClass(this, SongsActivity.class);
-	    spec = tabHost.newTabSpec("songs").setIndicator("Songs",
-	                      res.getDrawable(R.drawable.ic_tab_artists))
+	    tabHost.addTab(spec);
+	    
+	    // Create drinks tab
+	    intent = new Intent().setClass(this, DrinksActivity.class);
+	    spec = tabHost.newTabSpec(tab3_spec).setIndicator(tab3_name,
+	                      res.getDrawable(R.drawable.ic_tab_drinks))
 	                  .setContent(intent);
-	    tabHost.addTab(spec);    
+	    tabHost.addTab(spec);
+	    
 	    tabHost.setCurrentTab(0);
     }
     /**
@@ -113,8 +133,7 @@ public class Menu extends TabActivity {
                 showDetails(mCurCheckPosition);
             }*/
             final String[] GENRES = new String[] {
-    	        "Action", "Adventure", "Animation", "Children", "Comedy", "Documentary", "Drama",
-    	        "Foreign", "History", "Independent", "Romance", "Sci-Fi", "Television", "Thriller"
+    	        "Action", "Adventure", "Animation", "Children", "Comedy", "Documentary", "Drama"   	        
             };
             setListAdapter(new ArrayAdapter<String>(getActivity(),
                     android.R.layout.simple_list_item_single_choice, GENRES));

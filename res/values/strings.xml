@@ -2,4 +2,34 @@
 <resources>
     <string name="hello">Hello World, Menu!</string>
     <string name="app_name">E-Menu</string>
+    <string name="h_scef">勁辣雞腿蛋堡</string>
+    <string name="h_cceb">卡啦雞腿蛋堡</string>
+    <string name="h_tbcb">超厚牛肉起司堡</string>
+    <string name="h_peb">豬排蛋堡</string>
+    <string name="h_ceb">香雞蛋堡</string>
+    <string name="o_scco">勁辣雞腿蛋餅</string>
+    <string name="o_ccco">卡啦雞腿蛋餅</string>
+    <string name="o_tbco">超厚牛肉蛋餅</string>
+    <string name="o_pco">豬排蛋餅</string>
+    <string name="o_cco">香雞蛋餅</string>
+    <string name="d_cocs">玉米濃湯</string>
+    <string name="d_ipbm">冰薏仁漿</string>
+    <string name="d_hpbm">熱薏仁漿</string>
+    <string name="d_ism">冰豆漿</string>
+    <string name="d_hsm">熱豆漿</string>
+    <string name="cost_h_scef">50</string>
+    <string name="cost_h_cceb">45</string>
+    <string name="cost_h_tbcb">55</string>
+    <string name="cost_h_peb">40</string>
+    <string name="cost_h_ceb">35</string>
+    <string name="cost_o_scco">50</string>
+    <string name="cost_o_ccco">45</string>
+    <string name="cost_o_tbco">55</string>
+    <string name="cost_o_pco">40</string>
+    <string name="cost_o_cco">35</string>
+    <string name="cost_d_cocs">40</string>
+    <string name="cost_d_ipbm">25</string>
+    <string name="cost_d_hpbm">25</string>
+    <string name="cost_d_ism">20</string>
+    <string name="cost_d_hsm">20</string>
 </resources>

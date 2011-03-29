@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="5dp">
+    <Button 
+    	android:layout_width="wrap_content" 
+    	android:text="@string/d_cocs" 
+    	android:id="@+id/button_d_cocs" 
+    	android:layout_height="wrap_content">
+    </Button>
+    <Button 
+    	android:layout_width="wrap_content" 
+    	android:text="@string/d_ipbm" 
+    	android:id="@+id/button_d_ipbm" 
+    	android:layout_height="wrap_content">
+    </Button>
+    <Button 
+    	android:layout_width="wrap_content" 
+    	android:text="@string/d_hpbm" 
+    	android:id="@+id/button_d_hpbm" 
+    	android:layout_height="wrap_content">
+    </Button>
+    <Button 
+    	android:layout_width="wrap_content" 
+    	android:text="@string/d_ism" 
+    	android:id="@+id/button_d_ism" 
+    	android:layout_height="wrap_content">
+    </Button>
+    <Button 
+    	android:layout_width="wrap_content" 
+    	android:text="@string/d_hsm" 
+    	android:id="@+id/button_d_hsm" 
+    	android:layout_height="wrap_content">
+    </Button>  
+    <TextView
+    	android:id="@+id/textview"
+    	android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello">
+    </TextView>
+    <TextView
+    	android:id="@+id/textview2"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+        android:text="@string/hello">
+    </TextView>
+    
+</LinearLayout>
