@@ -2,6 +2,8 @@
 <resources>
     <string name="hello">Hello World, Menu!</string>
     <string name="app_name">E-Menu</string>
+    <string name="total">總計:</string>
+    <string name="meal">餐點:</string>
     <string name="h_scef">勁辣雞腿蛋堡</string>
     <string name="h_cceb">卡啦雞腿蛋堡</string>
     <string name="h_tbcb">超厚牛肉起司堡</string>

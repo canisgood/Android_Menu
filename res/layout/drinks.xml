@@ -4,7 +4,8 @@
 	android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:padding="5dp">
+    android:padding="5dp"
+    android:id="@+id/drinksLayout" >
     <Button 
     	android:layout_width="wrap_content" 
     	android:text="@string/d_cocs" 

@@ -21,6 +21,8 @@ package com.Menu;
 //import com.example.android.apis.Shakespeare;
 
 
+
+
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -35,6 +37,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TabHost;
@@ -46,200 +49,352 @@ import android.widget.TextView;
  * landscape.
  */
 public class Menu extends TabActivity {
-	
-
+	Bundle bundle;
+	Intent intent;
+	TextView editmeal;
+    TextView edittotal;
+    String order_cost="0";
+    String order_list="";
+    int cost,newitem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);     
-        setContentView(R.layout.fragment_layout);
+        setContentView(R.layout.fragment_textlayout);
         Resources res = getResources(); // Resource object to get Drawables
         
+        Button Clear;
+        Clear = (Button) findViewById(R.id.Clear);
+        editmeal = (TextView) findViewById(R.id.editmeal);
+        edittotal = (TextView) findViewById(R.id.edittotal);
 	    // Some parameters for tab
 	    String tab1_name="º~³ù";
 	    String tab2_name="³J»æ";
 	    String tab3_name="¶¼®Æ";
 	    String tab1_spec="Hamburger";
 	    String tab2_spec="Omelet";
-	    String tab3_spec="Drinks";
+	    String tab3_spec="Drinks";	
 	    
+	    
+	    Clear.setOnClickListener(
+               	new Button.OnClickListener(){
+               		@Override
+               		public void onClick(View v) {
+               			// TODO Auto-generated method stub               			
+               			editmeal.setText("");
+               			edittotal.setText("0"); 
+               			order_cost="0";
+               		    order_list="";
+               		}
+               	}
+            );    
 	    // The activity TabHost
-	    TabHost tabHost = getTabHost();
-	    
+	    TabHost tabHost = getTabHost();	    
 	    // Resusable TabSpec for each tab
-	    TabHost.TabSpec spec;
-	    
-	    // Reusable Intent for each tab
-	    Intent intent;
-
-	    // Create hamburger tab, Create an Intent to launch an Activity for the tab (to be reused)
-	    intent = new Intent().setClass(this, HamburgerActivity.class);	 
-
+	    TabHost.TabSpec spec;	  	 
 	    // Initialize a TabSpec for each tab and add it to the TabHost
 	    spec = tabHost.newTabSpec(tab1_spec).setIndicator(tab1_name,
-	                      res.getDrawable(R.drawable.ic_tab_hamburger))
-	                  .setContent(intent);
-	    tabHost.addTab(spec);
-
+	                   res.getDrawable(R.drawable.ic_tab_hamburger))
+	                  .setContent(R.id.hamburgerLayout);
+	    tabHost.addTab(spec);	  
 	    // Create omelet tab
-	    intent = new Intent().setClass(this, OmeletActivity.class);
 	    spec = tabHost.newTabSpec(tab2_spec).setIndicator(tab2_name,
 	                      res.getDrawable(R.drawable.ic_tab_omelet))
-	                  .setContent(intent);
-	    tabHost.addTab(spec);
-	    
-	    // Create drinks tab
-	    intent = new Intent().setClass(this, DrinksActivity.class);
+	                  .setContent(R.id.omeletLayout);
+	    tabHost.addTab(spec);    
+	    // Create drinks tab	    
 	    spec = tabHost.newTabSpec(tab3_spec).setIndicator(tab3_name,
 	                      res.getDrawable(R.drawable.ic_tab_drinks))
-	                  .setContent(intent);
-	    tabHost.addTab(spec);
-	    
+	                  .setContent(R.id.drinksLayout);
+	    tabHost.addTab(spec);	    
 	    tabHost.setCurrentTab(0);
-    }
-    /**
-     * This is the "top-level" fragment, showing a list of items that the
-     * user can pick.  Upon picking an item, it takes care of displaying the
-     * data to the user as appropriate based on the currrent UI layout.
-     */
-
-    public static class TitlesFragment extends ListFragment {
-        boolean mDualPane;
-        int mCurCheckPosition = 0;
-        int mShownCheckPosition = -1;
-        
-        @Override
-        public void onActivityCreated(Bundle savedInstanceState) {
-            super.onActivityCreated(savedInstanceState);
-
-            // Populate list with our static array of titles.
-            //setListAdapter(new ArrayAdapter<String>(getActivity(),
-            //android.R.layout.simple_list_item_activated_1, Shakespeare.TITLES));
-
-            // Check to see if we have a frame in which to embed the details
-            // fragment directly in the containing UI.
-            //View detailsFrame = getActivity().findViewById(R.id.details);
-            //mDualPane = detailsFrame != null && detailsFrame.getVisibility() == View.VISIBLE;
-
-            /*if (savedInstanceState != null) {
-                // Restore last state for checked position.
-                mCurCheckPosition = savedInstanceState.getInt("curChoice", 0);
-                mShownCheckPosition = savedInstanceState.getInt("shownChoice", -1);
-            }
-
-            if (mDualPane) {
-                // In dual-pane mode, the list view highlights the selected item.
-                getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-                // Make sure our UI is in the correct state.
-                showDetails(mCurCheckPosition);
-            }*/
-            final String[] GENRES = new String[] {
-    	        "Action", "Adventure", "Animation", "Children", "Comedy", "Documentary", "Drama"   	        
-            };
-            setListAdapter(new ArrayAdapter<String>(getActivity(),
-                    android.R.layout.simple_list_item_single_choice, GENRES));
-            
-            final ListView listView = getListView();
-
-            listView.setItemsCanFocus(false);
-            listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-        }
-
-        @Override
-        public void onSaveInstanceState(Bundle outState) {
-            super.onSaveInstanceState(outState);
-            outState.putInt("curChoice", mCurCheckPosition);
-            outState.putInt("shownChoice", mShownCheckPosition);
-        }
-
-        @Override
-        public void onListItemClick(ListView l, View v, int position, long id) {
-            showDetails(position);
-        }
-
-        /**
-         * Helper function to show the details of a selected item, either by
-         * displaying a fragment in-place in the current UI, or starting a
-         * whole new activity in which it is displayed.
-         */
-        void showDetails(int index) {
-            mCurCheckPosition = index;
-
-            if (mDualPane) {
-                // We can display everything in-place with fragments, so update
-                // the list to highlight the selected item and show the data.
-                getListView().setItemChecked(index, true);
-
-                if (mShownCheckPosition != mCurCheckPosition) {
-                    // If we are not currently showing a fragment for the new
-                    // position, we need to create and install a new one.
-                    DetailsFragment df = DetailsFragment.newInstance(index);
-
-                    // Execute a transaction, replacing any existing fragment
-                    // with this one inside the frame.
-                    FragmentTransaction ft = getFragmentManager().beginTransaction();
-                    //ft.replace(R.id.details, df);
-                    ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-                    ft.commit();
-                    mShownCheckPosition = index;
-                }
-
-            } else {
-                // Otherwise we need to launch a new activity to display
-                // the dialog fragment with selected text.
-                //Intent intent = new Intent();
-                //intent.setClass(getActivity(), DetailsActivity.class);
-                //intent.putExtra("index", index);
-                //startActivity(intent);
-            }
-        }
-        
+	    hamburger();
+	    drinks();
+	    Omelet();
     }
     
+    public void hamburger(){
+        TextView textview;
+        TextView textview2;       
+        Button button_h_scef;
+        Button button_h_cceb;
+        Button button_h_tbcb;
+        Button button_h_peb;
+        Button button_h_ceb;       
+        textview = (TextView) findViewById(R.id.textview);
+        textview2 = (TextView) findViewById(R.id.textview2);
+        textview.setText("This is the Hamburger tab...");
+        textview2.setText("What do you want to order?");           
+        button_h_scef = (Button) findViewById(R.id.button_h_scef);
+        button_h_cceb = (Button) findViewById(R.id.button_h_cceb);
+        button_h_tbcb = (Button) findViewById(R.id.button_h_tbcb);
+        button_h_peb = (Button) findViewById(R.id.button_h_peb);
+        button_h_ceb = (Button) findViewById(R.id.button_h_ceb);    
+        button_h_scef.setOnClickListener(
+           	new Button.OnClickListener(){
+           		@Override
+           		public void onClick(View v) {
+           			// TODO Auto-generated method stub
+           			order_list=order_list + " "+ getResources().getString(R.string.h_scef);
+           			newitem= Integer.parseInt(getResources().getString(R.string.cost_h_scef));
+           			cost = Integer.parseInt(order_cost);
+           			order_cost = Integer.toString(cost+newitem);
+               		editmeal.setText(order_list);
+               		edittotal.setText(order_cost);
+               		System.out.println(order_list+":"+order_cost);	
 
-    /**
-     * This is the secondary fragment, displaying the details of a particular
-     * item.
-     */
-
-    public static class DetailsFragment extends Fragment {
-        /**
-         * Create a new instance of DetailsFragment, initialized to
-         * show the text at 'index'.
-         */
-        public static DetailsFragment newInstance(int index) {
-            DetailsFragment f = new DetailsFragment();
-
-            // Supply index input as an argument.
-            Bundle args = new Bundle();
-            args.putInt("index", index);
-            f.setArguments(args);
-
-            return f;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            if (container == null) {
-                // We have different layouts, and in one of them this
-                // fragment's containing frame doesn't exist.  The fragment
-                // may still be created from its saved state, but there is
-                // no reason to try to create its view hierarchy because it
-                // won't be displayed.  Note this is not needed -- we could
-                // just run the code below, where we would create and return
-                // the view hierarchy; it would just never be used.
-                return null;
+           		}
+           	}
+        );
+        button_h_cceb.setOnClickListener(
+            new Button.OnClickListener(){
+               	@Override
+               	public void onClick(View v) {
+               		// TODO Auto-generated method stub
+               		order_list=order_list + " "+ getResources().getString(R.string.h_cceb);
+           			newitem= Integer.parseInt(getResources().getString(R.string.cost_h_cceb));
+           			cost = Integer.parseInt(order_cost);
+           			order_cost = Integer.toString(cost+newitem);
+               		editmeal.setText(order_list);
+               		edittotal.setText(order_cost);
+               		System.out.println(order_list+":"+order_cost);	
+               	}
             }
-
-            ScrollView scroller = new ScrollView(getActivity());
-            TextView text = new TextView(getActivity());
-            int padding = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                    4, getActivity().getResources().getDisplayMetrics());
-            text.setPadding(padding, padding, padding, padding);
-            scroller.addView(text);
-            //text.setText(Shakespeare.DIALOGUE[getArguments().getInt("index", 0)]);
-            return scroller;
-        }
+        );
+        button_h_tbcb.setOnClickListener(
+              	new Button.OnClickListener(){
+               		@Override
+               		public void onClick(View v) {
+               			// TODO Auto-generated method stub
+               			order_list=order_list + " "+ getResources().getString(R.string.h_tbcb);
+               			newitem= Integer.parseInt(getResources().getString(R.string.cost_h_tbcb));
+               			cost = Integer.parseInt(order_cost);
+               			order_cost = Integer.toString(cost+newitem);
+               			editmeal.setText(order_list);
+               			edittotal.setText(order_cost);
+               			System.out.println(order_list+":"+order_cost);
+               		}
+               	}
+            );
+        button_h_peb.setOnClickListener(
+               	new Button.OnClickListener(){
+               		@Override
+               		public void onClick(View v) {
+               			// TODO Auto-generated method stub
+               			order_list=order_list + " "+ getResources().getString(R.string.h_peb);
+               			newitem= Integer.parseInt(getResources().getString(R.string.cost_h_peb));
+               			cost = Integer.parseInt(order_cost);
+               			order_cost = Integer.toString(cost+newitem);
+               			editmeal.setText(order_list);
+               			edittotal.setText(order_cost);
+               			System.out.println(order_list+":"+order_cost);
+               		}
+               	}
+            );
+        button_h_ceb.setOnClickListener(
+               	new Button.OnClickListener(){
+               		@Override
+               		public void onClick(View v) {
+               			// TODO Auto-generated method stub
+               			order_list=order_list + " "+ getResources().getString(R.string.h_ceb);
+               			newitem= Integer.parseInt(getResources().getString(R.string.cost_h_ceb));
+               			cost = Integer.parseInt(order_cost);
+               			order_cost = Integer.toString(cost+newitem);
+               			editmeal.setText(order_list);
+               			edittotal.setText(order_cost);
+               			System.out.println(order_list+":"+order_cost);
+               		}
+               	}
+            );
     }
+    public void drinks(){
+    	TextView textview;
+        TextView textview2;
+        Button button_d_cocs;
+        Button button_d_ipbm;
+        Button button_d_hpbm;
+        Button button_d_ism;
+        Button button_d_hsm;
+        
+        textview = (TextView) findViewById(R.id.textview);
+        textview2 = (TextView) findViewById(R.id.textview2);
+        textview.setText("This is the Drinks tab...");
+        textview2.setText("What do you want to order?");
+        
+        button_d_cocs = (Button) findViewById(R.id.button_d_cocs);
+        button_d_ipbm = (Button) findViewById(R.id.button_d_ipbm);
+        button_d_hpbm = (Button) findViewById(R.id.button_d_hpbm);
+        button_d_ism = (Button) findViewById(R.id.button_d_ism);
+        button_d_hsm = (Button) findViewById(R.id.button_d_hsm);
+        
+        button_d_cocs.setOnClickListener(
+           	new Button.OnClickListener(){
+           		@Override
+           		public void onClick(View v) {
+           			// TODO Auto-generated method stub
+           			order_list=order_list + " "+ getResources().getString(R.string.d_cocs);
+           			newitem= Integer.parseInt(getResources().getString(R.string.cost_d_cocs));
+           			cost = Integer.parseInt(order_cost);
+           			order_cost = Integer.toString(cost+newitem);
+           			editmeal.setText(order_list);
+           			edittotal.setText(order_cost);
+           			System.out.println(order_list+":"+order_cost);
+           		}
+           	}
+        );
+        button_d_ipbm.setOnClickListener(
+               	new Button.OnClickListener(){
+               		@Override
+               		public void onClick(View v) {
+               			// TODO Auto-generated method stub	
+               			order_list=order_list + " "+ getResources().getString(R.string.d_ipbm);
+               			newitem= Integer.parseInt(getResources().getString(R.string.cost_d_ipbm));
+               			cost = Integer.parseInt(order_cost);
+               			order_cost = Integer.toString(cost+newitem);
+               			editmeal.setText(order_list);
+               			edittotal.setText(order_cost);
+               			System.out.println(order_list+":"+order_cost);
+               		}
+               	}
+            );
+        button_d_hpbm.setOnClickListener(
+               	new Button.OnClickListener(){
+               		@Override
+               		public void onClick(View v) {
+               			// TODO Auto-generated method stub	
+               			order_list=order_list + " "+ getResources().getString(R.string.d_hpbm);
+               			newitem= Integer.parseInt(getResources().getString(R.string.cost_d_hpbm));
+               			cost = Integer.parseInt(order_cost);
+               			order_cost = Integer.toString(cost+newitem);
+               			editmeal.setText(order_list);
+               			edittotal.setText(order_cost);
+               			System.out.println(order_list+":"+order_cost);
+               		}
+               	}
+            );
+        button_d_ism.setOnClickListener(
+               	new Button.OnClickListener(){
+               		@Override
+               		public void onClick(View v) {
+               			// TODO Auto-generated method stub	
+               			order_list=order_list + " "+ getResources().getString(R.string.d_ism);
+               			newitem= Integer.parseInt(getResources().getString(R.string.cost_d_ism));
+               			cost = Integer.parseInt(order_cost);
+               			order_cost = Integer.toString(cost+newitem);
+               			editmeal.setText(order_list);
+               			edittotal.setText(order_cost);
+               			System.out.println(order_list+":"+order_cost);
+               		}
+               	}
+            );
+        button_d_hsm.setOnClickListener(
+               	new Button.OnClickListener(){
+               		@Override
+               		public void onClick(View v) {
+               			// TODO Auto-generated method stub	
+               			order_list=order_list + " "+ getResources().getString(R.string.d_hsm);
+               			newitem= Integer.parseInt(getResources().getString(R.string.cost_d_hsm));
+               			cost = Integer.parseInt(order_cost);
+               			order_cost = Integer.toString(cost+newitem);
+               			editmeal.setText(order_list);
+               			edittotal.setText(order_cost);
+               			System.out.println(order_list+":"+order_cost);
+               		}
+               	}
+            );
+    }
+    public void Omelet(){
+        TextView textview;
+        TextView textview2;       
+        Button button_o_scco;
+        Button button_o_ccco;
+        Button button_o_tbco;
+        Button button_o_pco;
+        Button button_o_cco;
+        textview = (TextView) findViewById(R.id.textview);
+        textview2 = (TextView) findViewById(R.id.textview2);
+        textview.setText("This is the Omelet tab...");
+        textview2.setText("What do you want to order?");           
+        button_o_scco = (Button) findViewById(R.id.button_o_scco);
+        button_o_ccco = (Button) findViewById(R.id.button_o_ccco);
+        button_o_tbco = (Button) findViewById(R.id.button_o_tbco);
+        button_o_pco = (Button) findViewById(R.id.button_o_pco);
+        button_o_cco = (Button) findViewById(R.id.button_o_cco);
+        
+        button_o_scco.setOnClickListener(
+           	new Button.OnClickListener(){
+           		@Override
+           		public void onClick(View v) {
+           			// TODO Auto-generated method stub
+           			order_list=order_list + " "+ getResources().getString(R.string.o_scco);
+           			newitem= Integer.parseInt(getResources().getString(R.string.cost_o_scco));
+           			cost = Integer.parseInt(order_cost);
+           			order_cost = Integer.toString(cost+newitem);
+               		editmeal.setText(order_list);
+               		edittotal.setText(order_cost);
+               		System.out.println(order_list+":"+order_cost);	
 
+           		}
+           	}
+        );
+        button_o_ccco.setOnClickListener(
+            new Button.OnClickListener(){
+               	@Override
+               	public void onClick(View v) {
+               		// TODO Auto-generated method stub
+               		order_list=order_list + " "+ getResources().getString(R.string.o_ccco);
+           			newitem= Integer.parseInt(getResources().getString(R.string.cost_o_ccco));
+           			cost = Integer.parseInt(order_cost);
+           			order_cost = Integer.toString(cost+newitem);
+               		editmeal.setText(order_list);
+               		edittotal.setText(order_cost);
+               		System.out.println(order_list+":"+order_cost);	
+               	}
+            }
+        );
+        button_o_tbco.setOnClickListener(
+              	new Button.OnClickListener(){
+               		@Override
+               		public void onClick(View v) {
+               			// TODO Auto-generated method stub
+               			order_list=order_list + " "+ getResources().getString(R.string.o_tbco);
+               			newitem= Integer.parseInt(getResources().getString(R.string.cost_o_tbco));
+               			cost = Integer.parseInt(order_cost);
+               			order_cost = Integer.toString(cost+newitem);
+               			editmeal.setText(order_list);
+               			edittotal.setText(order_cost);
+               			System.out.println(order_list+":"+order_cost);
+               		}
+               	}
+            );
+        button_o_pco.setOnClickListener(
+               	new Button.OnClickListener(){
+               		@Override
+               		public void onClick(View v) {
+               			// TODO Auto-generated method stub
+               			order_list=order_list + " "+ getResources().getString(R.string.o_pco);
+               			newitem= Integer.parseInt(getResources().getString(R.string.cost_o_pco));
+               			cost = Integer.parseInt(order_cost);
+               			order_cost = Integer.toString(cost+newitem);
+               			editmeal.setText(order_list);
+               			edittotal.setText(order_cost);
+               			System.out.println(order_list+":"+order_cost);
+               		}
+               	}
+            );
+        button_o_cco.setOnClickListener(
+               	new Button.OnClickListener(){
+               		@Override
+               		public void onClick(View v) {
+               			// TODO Auto-generated method stub
+               			order_list=order_list + " "+ getResources().getString(R.string.o_cco);
+               			newitem= Integer.parseInt(getResources().getString(R.string.cost_o_cco));
+               			cost = Integer.parseInt(order_cost);
+               			order_cost = Integer.toString(cost+newitem);
+               			editmeal.setText(order_list);
+               			edittotal.setText(order_cost);
+               			System.out.println(order_list+":"+order_cost);
+               		}
+               	}
+            );
+    }
 }
