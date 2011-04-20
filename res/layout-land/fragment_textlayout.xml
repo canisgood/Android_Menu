@@ -94,6 +94,9 @@
             <include layout="@layout/hamburger"/>
             <include layout="@layout/drinks"/>
             <include layout="@layout/omelet"/>
+            <include layout="@layout/croissant"/>
+            <include layout="@layout/shaobing"/>
+            <include layout="@layout/toast"/>
         </FrameLayout>    
     </LinearLayout>
 	</TabHost>

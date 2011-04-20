@@ -5,72 +5,72 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:padding="5dp"
-    android:id="@+id/omeletLayout" >
+    android:id="@+id/toastLayout" >
 	<LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:orientation="vertical"
 	    android:layout_width="wrap_content"
 	    android:layout_height="fill_parent"
 	    android:padding="5dp"
-	    android:id="@+id/omeletLayout1" >
+	    android:id="@+id/toastLayout1" >
 	    <Button 
 	    	android:layout_width="wrap_content" 
-	    	android:text="@string/o_1" 
-	    	android:id="@+id/button_o_1" 
+	    	android:text="@string/t_1" 
+	    	android:id="@+id/button_t_1" 
 	    	android:layout_height="wrap_content">
 	    </Button>
 	    <Button 
 	    	android:layout_width="wrap_content" 
-	    	android:text="@string/o_2" 
-	    	android:id="@+id/button_o_2" 
+	    	android:text="@string/t_2" 
+	    	android:id="@+id/button_t_2" 
 	    	android:layout_height="wrap_content">
 	    </Button>
 	    <Button 
 	    	android:layout_width="wrap_content" 
-	    	android:text="@string/o_3" 
-	    	android:id="@+id/button_o_3" 
+	    	android:text="@string/t_3" 
+	    	android:id="@+id/button_t_3" 
 	    	android:layout_height="wrap_content">
 	    </Button>
 	    <Button 
 	    	android:layout_width="wrap_content" 
-	    	android:text="@string/o_4" 
-	    	android:id="@+id/button_o_4" 
+	    	android:text="@string/t_4" 
+	    	android:id="@+id/button_t_4" 
 	    	android:layout_height="wrap_content">
 	    </Button>
 	    <Button 
 	    	android:layout_width="wrap_content" 
-	    	android:text="@string/o_5" 
-	    	android:id="@+id/button_o_5" 
+	    	android:text="@string/t_5" 
+	    	android:id="@+id/button_t_5" 
 	    	android:layout_height="wrap_content">
 	    </Button>
 	    <Button 
 	    	android:layout_width="wrap_content" 
-	    	android:text="@string/o_6"
-	    	android:id="@+id/button_o_6" 
+	    	android:text="@string/t_6"
+	    	android:id="@+id/button_t_6" 
 	    	android:layout_height="wrap_content">
 	    </Button>
 	    <Button 
 	    	android:layout_width="wrap_content" 
-	    	android:text="@string/o_7" 
-	    	android:id="@+id/button_o_7" 
+	    	android:text="@string/t_7" 
+	    	android:id="@+id/button_t_7" 
 	    	android:layout_height="wrap_content">
 	    </Button>
 	    <Button 
 	    	android:layout_width="wrap_content" 
-	    	android:text="@string/o_8" 
-	    	android:id="@+id/button_o_8" 
+	    	android:text="@string/t_8" 
+	    	android:id="@+id/button_t_8" 
 	    	android:layout_height="wrap_content">
 	    </Button>
 	    <Button 
 	    	android:layout_width="wrap_content" 
-	    	android:text="@string/o_9" 
-	    	android:id="@+id/button_o_9" 
+	    	android:text="@string/t_9" 
+	    	android:id="@+id/button_t_9" 
 	    	android:layout_height="wrap_content">
 	    </Button>
 	    <Button 
 	    	android:layout_width="wrap_content" 
-	    	android:text="@string/o_10" 
-	    	android:id="@+id/button_o_10" 
+	    	android:text="@string/t_10" 
+	    	android:id="@+id/button_t_10" 
 	    	android:layout_height="wrap_content">
 	    </Button>
 	</LinearLayout>
@@ -80,53 +80,53 @@
 	    android:layout_width="wrap_content"
 	    android:layout_height="fill_parent"
 	    android:padding="5dp"
-	    android:id="@+id/omeletLayout2" >
+	    android:id="@+id/toastLayout2" >
 	    <Button 
 	    	android:layout_width="wrap_content" 
-	    	android:text="@string/o_11"
-	    	android:id="@+id/button_o_11" 
+	    	android:text="@string/t_11"
+	    	android:id="@+id/button_t_11" 
 	    	android:layout_height="wrap_content">
 	    </Button>
 	    <Button 
 	    	android:layout_width="wrap_content" 
-	    	android:text="@string/o_12" 
-	    	android:id="@+id/button_o_12" 
+	    	android:text="@string/t_12" 
+	    	android:id="@+id/button_t_12" 
 	    	android:layout_height="wrap_content">
 	    </Button>
 	    <Button 
 	    	android:layout_width="wrap_content" 
-	    	android:text="@string/o_13" 
-	    	android:id="@+id/button_o_13" 
+	    	android:text="@string/t_13" 
+	    	android:id="@+id/button_t_13" 
 	    	android:layout_height="wrap_content">
 	    </Button>
 	    <Button 
 	    	android:layout_width="wrap_content" 
-	    	android:text="@string/o_14" 
-	    	android:id="@+id/button_o_14" 
+	    	android:text="@string/t_14" 
+	    	android:id="@+id/button_t_14" 
 	    	android:layout_height="wrap_content">
 	    </Button>
 	    <Button 
 	    	android:layout_width="wrap_content" 
-	    	android:text="@string/o_15" 
-	    	android:id="@+id/button_o_15" 
+	    	android:text="@string/t_15" 
+	    	android:id="@+id/button_t_15" 
 	    	android:layout_height="wrap_content">
 	    </Button>
 	    <Button 
 	    	android:layout_width="wrap_content" 
-	    	android:text="@string/o_16"
-	    	android:id="@+id/button_o_16" 
+	    	android:text="@string/t_16"
+	    	android:id="@+id/button_t_16" 
 	    	android:layout_height="wrap_content">
 	    </Button>
 	    <Button 
 	    	android:layout_width="wrap_content" 
-	    	android:text="@string/o_17" 
-	    	android:id="@+id/button_o_17" 
+	    	android:text="@string/t_17" 
+	    	android:id="@+id/button_t_17" 
 	    	android:layout_height="wrap_content">
 	    </Button>
 	    <Button 
 	    	android:layout_width="wrap_content" 
-	    	android:text="@string/o_18" 
-	    	android:id="@+id/button_o_18" 
+	    	android:text="@string/t_18" 
+	    	android:id="@+id/button_t_18" 
 	    	android:layout_height="wrap_content">
 	    </Button>
 	    <TextView
