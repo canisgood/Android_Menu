@@ -127,4 +127,8 @@
     <string name="cost_50">50</string>
     <string name="cost_55">55</string>
     <string name="cost_60">60</string>
+    <string name="Checkout">結帳</string>
+    <string name="in">內用</string>
+    <string name="out">外帶</string>
+    <string name="type">類別:</string>
 </resources>

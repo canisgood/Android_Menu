@@ -17,14 +17,21 @@ package com.Menu;
  */
 
 //import com.example.android.apis.Shakespeare;
+import java.util.List;
+import java.util.Vector;
+
+
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.app.TabActivity;
+
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.net.ParseException;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -32,34 +39,133 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Demonstration of using fragments to implement different activity layouts.
  * This sample provides a different layout (and activity flow) when run in
  * landscape.
  */
-public class Menu extends TabActivity {
+public class Menu extends  TabActivity {
+	private class RowData {
+	       protected int mId;
+	       protected String mTitle;
+	       protected String mDetail;
+	       protected String mTotal;
+	       RowData(int id,String title,String detail,String total){
+		       mId=id;
+		       mTitle = title;
+		       mDetail=detail;
+		       mTotal=total;
+		       
+	       }
+	       @Override
+	       public String toString() {
+	               return mId+" "+mTitle+" "+mDetail;
+	       }
+	}
+	public class CustomAdapter extends ArrayAdapter<RowData> {
+		public CustomAdapter(Context context, int resource,int textViewResourceId, List<RowData> objects) {               
+			super(context, resource, textViewResourceId, objects);
+		}
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {   
+		       ViewHolder holder = null;
+		       TextView title = null;
+		       TextView detail = null;
+		       TextView total = null;
+		       ImageView i11=null;
+		       RowData rowData= getItem(position);
+		       if(null == convertView){
+		            convertView = mInflater.inflate(R.layout.list, null);
+		            holder = new ViewHolder(convertView);
+		            convertView.setTag(holder);
+		       }
+		       holder = (ViewHolder) convertView.getTag();
+		       title = holder.gettitle();
+		       title.setText(rowData.mTitle);
+		       detail = holder.getdetail();
+		       detail.setText(rowData.mDetail);                                                     
+		       total = holder.getdetail();
+		       total.setText(rowData.mTotal);
+		       //i11=holder.getImage();
+		       //i11.setImageResource(imgid[rowData.mId]);
+		       return convertView;
+		}
+		private class ViewHolder {
+			private View mRow;
+			private TextView title = null;
+			private TextView detail = null;
+			private TextView total = null;
+			private ImageView i11=null; 
+			public ViewHolder(View row) {
+				mRow = row;
+			}
+			public TextView gettitle() {
+				if(null == title){
+					title = (TextView) mRow.findViewById(R.id.title);
+				}
+				return title;             
+			}     
+			public TextView getdetail() {
+			    if(null == detail){
+			        detail = (TextView) mRow.findViewById(R.id.detail);
+			    }
+			    return detail;
+			}
+			public TextView gettotal() {
+			    if(null == total){
+			    	total = (TextView) mRow.findViewById(R.id.totally);
+			    }
+			    return total;
+			}
+			//public ImageView getImage() {
+			//    if(null == i11){
+			//        i11 = (ImageView) mRow.findViewById(R.id.img);
+			//    }
+			//    return i11;
+			//}        
+		}
+	}
+	private LayoutInflater mInflater;
+	private Vector<RowData> data;
+	RowData rd;
+	static  String[] title = new String[1000];	
+	static  String[] detail = new String[1000];
+	static  String[] total = new String[1000]; 
+	private Integer[] imgid = {
+	  //R.drawable.bsfimg,R.drawable.bsfimg4,R.drawable.bsfimg2,
+	  //R.drawable.bsfimg5
+	};	
+	//////////////////////
 	Bundle bundle;
 	Intent intent;
 	TextView editmeal;
 	TextView edittotal;
+	TextView edittype;
+	ListView order;
 	String order_cost="0";
 	String order_list="";
-	int cost,newitem;
+	int cost,newitem,guestnum=0,checkoutflag=0;
+	Button In,Out,Checkout;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);     
 		setContentView(R.layout.fragment_textlayout);
-		Resources res = getResources(); // Resource object to get Drawables
-
-		Button Clear;
-		Clear = (Button) findViewById(R.id.Clear);
+		Resources res = getResources(); // Resource object to get Drawables		
+		In = (Button) findViewById(R.id.in);
+		Out = (Button) findViewById(R.id.out);
+		Checkout = (Button) findViewById(R.id.Checkout);
+		order = (ListView) findViewById(R.id.guestlistview);
 		editmeal = (TextView) findViewById(R.id.editmeal);
 		edittotal = (TextView) findViewById(R.id.edittotal);
+		edittype = (TextView) findViewById(R.id.edittype);
 		// Some parameters for tab
 		String tab1_name="漢堡";
 		String tab2_name="蛋餅";
@@ -73,19 +179,104 @@ public class Menu extends TabActivity {
 		String tab4_spec="Croissant";
 		String tab5_spec="Shaobing";
 		String tab6_spec="Toast";
-
-		Clear.setOnClickListener(
+		mInflater = (LayoutInflater) getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+		data = new Vector<RowData>();
+		for(int i=0;i<guestnum+1;i++){
+		try {
+		 	rd = new RowData(i,title[i],detail[i],total[i]);
+		    } catch (ParseException e) {
+		    	e.printStackTrace();
+		   }
+		   data.add(rd);
+		}
+		CustomAdapter adapter = new CustomAdapter(this, R.layout.list,R.id.title, data);
+		order.setAdapter(adapter);
+		order.setTextFilterEnabled(true);
+		In.setOnClickListener(
 				new Button.OnClickListener(){
 					@Override
 					public void onClick(View v) {
 						// TODO Auto-generated method stub               			
+						if(checkoutflag==0){	
+							System.out.println("111111111");
+							edittype.setText("內用");
+							/*title[guestnum]="內用";
+							Vector<RowData> data;
+							data = new Vector<RowData>();
+							for(int i=0;i<guestnum+1;i++){
+								try {
+									RowData rd = new RowData(i,title[i],detail[i],total[i]);
+								    } catch (ParseException e) {
+								    	e.printStackTrace();
+								   }
+								   data.add(rd);
+							}						
+							CustomAdapter adapter1 = new CustomAdapter(Menu.this, R.layout.list,R.id.title, data);
+							order.setAdapter(adapter1);								
+							order.setTextFilterEnabled(true);*/
+							checkoutflag=1;
+							System.out.println(guestnum);
+							//System.out.println(title[guestnum]);
+						}
+						
+					}					
+				}
+		);
+		Out.setOnClickListener(
+				new Button.OnClickListener(){
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub               			
+						if(checkoutflag==0){	
+							System.out.println("111111111");
+							edittype.setText("外帶");
+							/*Vector<RowData> data;
+							data = new Vector<RowData>();
+							title[guestnum]="外帶";
+							for(int i=0;i<guestnum+1;i++){
+								try {
+									RowData rd = new RowData(i,title[i],detail[i],total[i]);
+								    } catch (ParseException e) {
+								    	e.printStackTrace();
+								   }
+								   data.add(rd);
+							}							
+							CustomAdapter adapter2 = new CustomAdapter(Menu.this, R.layout.list,R.id.title, data);
+							order.setAdapter(adapter2);								
+							order.setTextFilterEnabled(true);*/
+							checkoutflag=1;
+							System.out.println(guestnum);
+							//System.out.println(title[guestnum]);
+						}
+						
+					}
+				}
+		); 
+		Checkout.setOnClickListener(
+				new Button.OnClickListener(){
+					@Override
+					public void onClick(View v) {
+						if(checkoutflag==1){						
+						System.out.println("checkout");
+						// TODO Auto-generated method stub               								
+						RowData rd = new RowData(guestnum,"("+edittype.getText().toString()+") 總計:"+" "+edittotal.getText().toString() ,edittotal.getText().toString(),editmeal.getText().toString());
+						data.add(rd);
+						CustomAdapter adapter2 = new CustomAdapter(Menu.this, R.layout.list,R.id.title, data);
+						order.setAdapter(adapter2);								
+						order.setTextFilterEnabled(true);
+						checkoutflag=0;
+						guestnum++;
+						//////////
+						edittype.setText("");
 						editmeal.setText("");
 						edittotal.setText("0"); 
 						order_cost="0";
 						order_list="";
+						////////////
+						}
 					}
 				}
-		);    
+		); 									
 		// The activity TabHost
 		TabHost tabHost = getTabHost();	    
 		// Resusable TabSpec for each tab
