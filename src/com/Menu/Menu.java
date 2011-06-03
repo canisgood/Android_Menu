@@ -51,7 +51,7 @@ import android.widget.Toast;
  * This sample provides a different layout (and activity flow) when run in
  * landscape.
  */
-public class Menu extends  TabActivity {
+public class Menu extends  Activity {
 	private class RowData {
 	       protected int mId;
 	       protected String mTitle;
@@ -153,7 +153,14 @@ public class Menu extends  TabActivity {
 	String order_list="";
 	int cost,newitem,guestnum=0,checkoutflag=0;
 	Button In,Out,Checkout;
-	
+	Button Smallcount,Clear;
+	Button SpicyChicken,KaraChicken,Beef,PorkStack,Chicken,PorkFillet,ChickenBar,
+		   Dragon,DoubleShi,Tuna,Cheese,Vegetable,Pork,Ham,Bacon,MacChicken,Egg,
+		   HotSpicyChicken,PorkFloss,Corn,Original,Peanut,Chocolate,All,Burger,
+		   Toast,Pancake,HotPancake,Croissants;
+	Button Cornsoup,IcePearlBarley,HotPearlBarley,IceRice,HotRice,IceBlackTea,HotBlackTea,
+		   IceMilkTea,HotMilkTea,GreenTea,NoSugurGreenTea,OrangeJuice,GrapeJuice,Coffee,
+		   GreenBeanMilk,Milk,ToyMilk,BaiBlackTea,BaiGreenTea,Coke;	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);     
@@ -166,6 +173,24 @@ public class Menu extends  TabActivity {
 		editmeal = (TextView) findViewById(R.id.editmeal);
 		edittotal = (TextView) findViewById(R.id.edittotal);
 		edittype = (TextView) findViewById(R.id.edittype);
+		Smallcount = (Button) findViewById(R.id.Smallcount);
+		Clear = (Button) findViewById(R.id.Clear);
+		SpicyChicken = (Button) findViewById(R.id.SpicyChicken);
+		KaraChicken = (Button) findViewById(R.id.KaraChicken);Beef = (Button) findViewById(R.id.Beef);
+		PorkStack = (Button) findViewById(R.id.PorkStack);Chicken = (Button) findViewById(R.id.Chicken);
+		PorkFillet = (Button) findViewById(R.id.PorkFillet);ChickenBar = (Button) findViewById(R.id.ChickenBar);
+		DoubleShi = (Button) findViewById(R.id.DoubleShi);Tuna = (Button) findViewById(R.id.Tuna);
+		Cheese = (Button) findViewById(R.id.Cheese);Vegetable = (Button) findViewById(R.id.Vegetable);
+		Pork = (Button) findViewById(R.id.Pork);Ham = (Button) findViewById(R.id.Ham);
+		Bacon = (Button) findViewById(R.id.Bacon);MacChicken = (Button) findViewById(R.id.MacChicken);
+		Egg = (Button) findViewById(R.id.Egg);HotSpicyChicken = (Button) findViewById(R.id.HotSpicyChicken);
+		PorkFloss = (Button) findViewById(R.id.PorkFloss);Corn = (Button) findViewById(R.id.Corn);
+		Original = (Button) findViewById(R.id.Original);Peanut = (Button) findViewById(R.id.Peanut);
+		Chocolate = (Button) findViewById(R.id.Chocolate);All = (Button) findViewById(R.id.All);
+		Burger = (Button) findViewById(R.id.Burger);Toast = (Button) findViewById(R.id.Toast);
+		Pancake = (Button) findViewById(R.id.Pancake);HotPancake = (Button) findViewById(R.id.HotPancake);
+		Croissants = (Button) findViewById(R.id.Croissants);
+		
 		// Some parameters for tab
 		String tab1_name="º~³ù";
 		String tab2_name="³J»æ";
@@ -277,7 +302,9 @@ public class Menu extends  TabActivity {
 					}
 				}
 		); 									
-		// The activity TabHost
+		
+		
+		/* The activity TabHost
 		TabHost tabHost = getTabHost();	    
 		// Resusable TabSpec for each tab
 		TabHost.TabSpec spec;	  	 	    
@@ -323,7 +350,7 @@ public class Menu extends  TabActivity {
 		omelet();
 		croissant();
 		shaobing();
-		toast();
+		toast();*/
 	}
 
 	// hamburger page
