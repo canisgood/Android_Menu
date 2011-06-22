@@ -2,132 +2,279 @@
 <LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="horizontal"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:padding="5dp"
     android:id="@+id/drinksLayout" >
-	<LinearLayout
-		xmlns:android="http://schemas.android.com/apk/res/android"
-		android:orientation="vertical"
-	    android:layout_width="wrap_content"
-	    android:layout_height="fill_parent"
-	    android:padding="5dp"
-	    android:id="@+id/drinksLayout1" >
-	    <Button 
-	    	android:layout_width="wrap_content" 
-	    	android:text="@string/d_1" 
-	    	android:id="@+id/button_d_1" 
-	    	android:layout_height="wrap_content">
-	    </Button>
-	    <Button 
-	    	android:layout_width="wrap_content" 
-	    	android:text="@string/d_2" 
-	    	android:id="@+id/button_d_2" 
-	    	android:layout_height="wrap_content">
-	    </Button>
-	    <Button 
-	    	android:layout_width="wrap_content" 
-	    	android:text="@string/d_3" 
-	    	android:id="@+id/button_d_3" 
-	    	android:layout_height="wrap_content">
-	    </Button>
-	    <Button 
-	    	android:layout_width="wrap_content" 
-	    	android:text="@string/d_4" 
-	    	android:id="@+id/button_d_4" 
-	    	android:layout_height="wrap_content">
-	    </Button>
-	    <Button 
-	    	android:layout_width="wrap_content" 
-	    	android:text="@string/d_5" 
-	    	android:id="@+id/button_d_5" 
-	    	android:layout_height="wrap_content">
-	    </Button>
-	    <Button 
-	    	android:layout_width="wrap_content" 
-	    	android:text="@string/d_6"
-	    	android:id="@+id/button_d_6" 
-	    	android:layout_height="wrap_content">
-	    </Button>
-	    <Button 
-	    	android:layout_width="wrap_content" 
-	    	android:text="@string/d_7" 
-	    	android:id="@+id/button_d_7" 
-	    	android:layout_height="wrap_content">
-	    </Button>
-	    <Button 
-	    	android:layout_width="wrap_content" 
-	    	android:text="@string/d_8" 
-	    	android:id="@+id/button_d_8" 
-	    	android:layout_height="wrap_content">
-	    </Button>
-	    <Button 
-	    	android:layout_width="wrap_content" 
-	    	android:text="@string/d_9" 
-	    	android:id="@+id/button_d_9" 
-	    	android:layout_height="wrap_content">
-	    </Button>
-	    <Button 
-	    	android:layout_width="wrap_content" 
-	    	android:text="@string/d_10" 
-	    	android:id="@+id/button_d_10" 
-	    	android:layout_height="wrap_content">
-	    </Button>
-	</LinearLayout>
-	<LinearLayout
-		xmlns:android="http://schemas.android.com/apk/res/android"
-		android:orientation="vertical"
-	    android:layout_width="wrap_content"
-	    android:layout_height="fill_parent"
-	    android:padding="5dp"
-	    android:id="@+id/drinksLayout2" >
-	    <Button 
-	    	android:layout_width="wrap_content" 
-	    	android:text="@string/d_11"
-	    	android:id="@+id/button_d_11" 
-	    	android:layout_height="wrap_content">
-	    </Button>
-	    <Button 
-	    	android:layout_width="wrap_content" 
-	    	android:text="@string/d_12" 
-	    	android:id="@+id/button_d_12" 
-	    	android:layout_height="wrap_content">
-	    </Button>
-	    <Button 
-	    	android:layout_width="wrap_content" 
-	    	android:text="@string/d_13" 
-	    	android:id="@+id/button_d_13" 
-	    	android:layout_height="wrap_content">
-	    </Button>
-	    <Button 
-	    	android:layout_width="wrap_content" 
-	    	android:text="@string/d_14" 
-	    	android:id="@+id/button_d_14" 
-	    	android:layout_height="wrap_content">
-	    </Button>
-	    <Button 
-	    	android:layout_width="wrap_content" 
-	    	android:text="@string/d_15" 
-	    	android:id="@+id/button_d_15" 
-	    	android:layout_height="wrap_content">
-	    </Button>
-	    <Button 
-	    	android:layout_width="wrap_content" 
-	    	android:text="@string/d_16"
-	    	android:id="@+id/button_d_16" 
-	    	android:layout_height="wrap_content">
-	    </Button>
-	    <TextView
-	    	android:id="@+id/textview"
-	    	android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/hello">
-	    </TextView>
-	    <TextView
-	    	android:id="@+id/textview2"
-	    	android:layout_width="fill_parent"
-	    	android:layout_height="wrap_content"
-	        android:text="@string/hello">
-	    </TextView>
-    </LinearLayout>
+	<LinearLayout android:layout_width="wrap_content" 
+	    	android:layout_height="wrap_content" 
+	    	android:id="@+id/extra1"
+	    	android:orientation="vertical">	    	
+		    	<Button android:text="@string/BigPearlBarley" android:id="@+id/BigPearlBarley" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/MiddlePearlBarley" android:id="@+id/MiddlePearlBarley" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/SmallPearlBarley" android:id="@+id/SmallPearlBarley" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/BigSoyBean" android:id="@+id/BigSoyBean" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/MiddleSoyBean" android:id="@+id/MiddleSoyBean" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/SmallSoyBean" android:id="@+id/SmallSoyBean" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>		    
+			    <Button android:text="@string/BidRice" android:id="@+id/BidRice" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/MiddleRice" android:id="@+id/MiddleRice" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/SmallRice" android:id="@+id/SmallRice" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/Milk" android:id="@+id/Milk" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>		     		    
+	    	</LinearLayout>
+	    	<LinearLayout android:layout_width="wrap_content" 
+	    	android:layout_height="wrap_content" 
+	    	android:id="@+id/extra2"
+	    	android:orientation="vertical">	 	    	
+		    	<Button android:text="@string/BigBlackTea" android:id="@+id/BigBlackTea" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/MiddleBlackTea" android:id="@+id/MiddleBlackTea" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/SmallBlackTea" android:id="@+id/SmallBlackTea" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/BigMilkTea" android:id="@+id/BigMilkTea" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/MiddleMilkTea" android:id="@+id/MiddleMilkTea" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/SmallMilkTea" android:id="@+id/SmallMilkTea" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/BigGreenTea" android:id="@+id/BigGreenTea" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/MiddleGreenTea" android:id="@+id/MiddleGreenTea" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/SmallGreenTea" android:id="@+id/SmallGreenTea" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/ToyMilk" android:id="@+id/ToyMilk" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>		    	    	
+	    	</LinearLayout>
+	    	<LinearLayout android:layout_width="wrap_content" 
+	    	android:layout_height="wrap_content" 
+	    	android:id="@+id/extra3"
+	    	android:orientation="vertical">
+	    		<Button android:text="@string/BigGreenBean" android:id="@+id/BigGreenBean" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/MiddleGreenBean" android:id="@+id/MiddleGreenBean" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/SmallGreenBean" android:id="@+id/SmallGreenBean" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/BigBaiBlack" android:id="@+id/BigBaiBlack" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/MiddleBaiBlack" android:id="@+id/MiddleBaiBlack" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/SmallBaiBlack" android:id="@+id/SmallBaiBlack" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/BigBaiGreen" android:id="@+id/BigBaiGreen" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/MiddleBaiGreen" android:id="@+id/MiddleBaiGreen" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/SmallBaiGreen" android:id="@+id/SmallBaiGreen" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/BigOrangeJuice" android:id="@+id/BigOrangeJuice" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+	    	</LinearLayout>	
+	    	<LinearLayout android:layout_width="wrap_content" 
+	    	android:layout_height="wrap_content" 
+	    	android:id="@+id/extra4"
+	    	android:orientation="vertical">
+	    		<Button android:text="@string/MiddleOrangeJuice" android:id="@+id/MiddleOrangeJuice" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/SmallOrangeJuice" android:id="@+id/SmallOrangeJuice" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/BigCoffee" android:id="@+id/BigCoffee" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/MiddleCoffee" android:id="@+id/MiddleCoffee" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/SmallCoffee" android:id="@+id/SmallCoffee" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/BigGrapeJuice" android:id="@+id/BigGrapeJuice" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/MiddleGrapeJuice" android:id="@+id/MiddleGrapeJuice" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/SmallGrapeJuice" android:id="@+id/SmallGrapeJuice" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/BigCoke" android:id="@+id/BigCoke" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/MiddleCoke" android:id="@+id/MiddleCoke" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+	    	</LinearLayout>
+	    	<LinearLayout android:layout_width="wrap_content" 
+	    	android:layout_height="wrap_content" 
+	    	android:id="@+id/extra5"
+	    	android:orientation="vertical">
+	    		<Button android:text="@string/BigCornsoup" android:id="@+id/BigCornsoup" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/MiddleCornsoup" android:id="@+id/MiddleCornsoup" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/SmallCornsoup" android:id="@+id/SmallCornsoup" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/Hot" android:id="@+id/Hot" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/Warm" android:id="@+id/Warm" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/Ice" android:id="@+id/Ice" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/NoIce" android:id="@+id/NoIce" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/NoSuger" android:id="@+id/NoSuger" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			    <Button android:text="@string/LowSuger" android:id="@+id/LowSuger" 
+			    android:layout_width="155px" 
+			    android:layout_height="65px"
+			    android:textAppearance="?android:attr/textAppearanceLarge">  
+			    </Button>
+			   
+	    	</LinearLayout>
 </LinearLayout>
